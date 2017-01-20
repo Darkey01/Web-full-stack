@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+	
+	<head>
+	
+		<meta charset="utf-8">
+		<title>My e-shop</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Connexion à mon application">
+
+		<!-- ci-dessous notre fichier CSS -->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,700,300" />
+
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+				    
+				    <div class="main">
+				            
+				        <div class="row">
+					        <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+					                    
+					            <h1>My e-shop</h1>
+					            <h2>Connectez-vous pour avoir plus de fonctionnalités !</h2>
+					                    
+					            <form name="loginForm" novalidate class="form-horizontal"  accept-charset="utf-8">
+					                <div class="form-group">
+					                <div class="col-md-8"><input type="email" placeholder="Votre adresse email" name="emailInput" ng-model="email" ng-model-options="{ allowInvalid: true }" required></div>
+					                </div>
+					                
+					                <div class="form-group">
+										<div class="col-md-offset-0 col-md-8"><input type="password" placeholder="Votre mot de passe" ng-minlength="6" name="passwordInput" ng-model="password" required></div>
+									</div>
+					                
+					                <div class="form-group">
+									<button type="submit" ng-click="loginAction()" ng-disabled="!loginForm.$valid">Submit</button></div>
+					            
+					            </form>
+					            <p class="credits">Développé par <a href="http://www.ludovictrapeau.com" target="_blank">Reynald REY et Ludovic TRAPEAU</a>.</p>
+					        </div>
+				        </div>
+				        
+				    </div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</body>
+
+</html>
