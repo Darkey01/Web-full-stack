@@ -1,0 +1,34 @@
+<body>
+
+        <img src="img/log.png" height="75.9px" width="300px"/>
+
+<h1>Site de vente hi-tech</h1>
+
+<div ng-app="">
+</div>
+<div class="shell">
+    <!-- Content -->
+    <div id="content">
+        <!-- Container -->
+        <div id="container">
+            <div class="tabbed">
+                <!-- First Tab Content -->
+                <div class="tab-content" style="display:block;">
+                    <div class="items">
+                        <div class="cl">&nbsp;</div>
+                        <ul>
+                            <li class="accueil-soldé" ng-repeat="article in articleSoldes">
+                                <div class="image"><a href="#"><img src="./img/{{article.image}}" width="200" height="121.95" /></a>
+                                    <p>{{article.nom}}</p>
+                                    <span></span><span class="prix">{{article.prixPromo}}</span>
+                                </div>
+                            </li>
+                        </ul>
+
+            </div>
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End Content -->
+</div>
+</body>
