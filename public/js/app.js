@@ -1,7 +1,12 @@
 var app = angular.module('quizApp', ['ngRoute']);
+var router = require('express').Router();
 
 //var apiBaseURL = 'http://0.0.0.0:3000/api';
 var apiBaseURL = 'http://10.69.2.15:3000/api';
+
+router.get(['/', '/index'], function(req, res) {
+        res.render('index.html');
+});
 
 app.config(function($routeProvider) {
     $routeProvider

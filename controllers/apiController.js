@@ -36,14 +36,21 @@ var parser = bodyParser.urlencoded({extended: false});
 
 router.get(['/', '/index','/accueil'], function(req, res) {
     //affiche index.html
+    res.render('accueil.html');
 
-    Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
+   /* Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
         Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
             Article.find({}).sort('-moyenneNote').limit(1).exec(function (err, articleTop) {
                 res.render('accueil.html', {articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop});
             });
         });
-    });
+    });*/
+});
+
+router.get(['/login'], function(req, res) {
+    //affiche index.html
+    res.render('login.html');
+
 });
 
 router.get(['/arcticle/:id'], function(req, res) {
