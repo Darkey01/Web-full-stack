@@ -38,6 +38,11 @@ router.get('/login' , function(req, res) {
     res.render('/views/login.html');
 });
 
+router.get('/phone' , function(req, res) {
+    //affiche ajout.html
+    res.render('/views/mobilePhone.html');
+});
+
 router.get(['/add'] , function(req, res) {
     //affiche ajout.html
     res.render('ajout.html');

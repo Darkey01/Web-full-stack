@@ -18,6 +18,18 @@ app.config(function($routeProvider) {
             controller: '',
             templateUrl: 'accueil.html'
         })
+        .when('/phone', {
+            controller: '',
+            templateUrl: 'mobilePhone.html'
+        })
+        .when('/computer', {
+            controller: '',
+            templateUrl: 'computer.html'
+        })
+        .when('/tablet', {
+            controller: '',
+            templateUrl: 'tablet.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -32,7 +44,7 @@ app.controller('LoginController', ['$scope', '$location', 'users', function($sco
     $scope.loginAction = function() {
         $scope.loginError = false;
         alert('email : ' + $scope.email + '  password : ' + $scope.password)
-
+        $location.path('/accueil');
         var promise = users.loginUser($scope.email, $scope.password);
         promise.then(function(response) {
             $location.path('/accueil');

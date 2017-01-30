@@ -53,7 +53,37 @@ router.get(['/login'], function(req, res) {
 
 });
 
-router.get(['/arcticle/:id'], function(req, res) {
+router.get(['/phone'], function(req, res) {
+    //affiche index.html
+    res.render('mobilePhone.html');
+
+});
+
+router.get(['/computer'], function(req, res) {
+    //affiche index.html
+    res.render('computer.html');
+
+});
+
+router.get(['/tablet'], function(req, res) {
+    //affiche index.html
+    res.render('tablet.html');
+
+});
+
+router.get(['/panier'], function(req, res) {
+    //affiche index.html
+    res.render('panier.html');
+
+});
+
+router.get(['/account'], function(req, res) {
+    //affiche index.html
+    res.render('account.html');
+
+});
+
+router.get(['/article/:id'], function(req, res) {
     //affiche detail.html
     var idFilm = req.params.id;
     Article.findById(idFilm).exec(function(err, arcticle) {
