@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Panier</title>
+    <title>Mon compte</title>
     <link rel="stylesheet" type="text/css" href="/public/css/style2.css" />
     <img src="/public/css/images/logo.jpg" height="75.9px" width="300px"/>
 </head>
@@ -18,6 +18,15 @@
         <li><a href="/account">Mon compte</a></li>
         <li><a href="/apropos">A propos</a></li>
     </ul>
+
+    <form>
+        <p>Nom : {{user.nom}}</p>
+        <p>Prénom : {{user.prenom}}</p>
+        <p>Date de naissance : {{user.dateNaissance}}</p>
+        <p>Adresse : {{user.adresse}}</p>
+        <p>Adresse email : {{user.mail}}</p>
+    </form>
+
 </div>
 </body>
 </html>

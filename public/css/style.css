@@ -6,7 +6,7 @@ body {
 
 
 .main {
-	background: white url(../img/tel.jpg) right top no-repeat;
+	background: white url(./images/slide2.jpg) right top no-repeat;
 	background-size: contain;
 	padding: 80px 20px 20px;
 	margin-top: 120px;

@@ -36,17 +36,54 @@ var parser = bodyParser.urlencoded({extended: false});
 
 router.get(['/', '/index','/accueil'], function(req, res) {
     //affiche index.html
+    res.render('accueil.html');
 
-    Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
+   /* Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
         Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
             Article.find({}).sort('-moyenneNote').limit(1).exec(function (err, articleTop) {
                 res.render('accueil.html', {articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop});
             });
         });
-    });
+    });*/
 });
 
-router.get(['/arcticle/:id'], function(req, res) {
+router.get(['/login'], function(req, res) {
+    //affiche index.html
+    res.render('login.html');
+
+});
+
+router.get(['/phone'], function(req, res) {
+    //affiche index.html
+    res.render('mobilePhone.html');
+
+});
+
+router.get(['/computer'], function(req, res) {
+    //affiche index.html
+    res.render('computer.html');
+
+});
+
+router.get(['/tablet'], function(req, res) {
+    //affiche index.html
+    res.render('tablet.html');
+
+});
+
+router.get(['/panier'], function(req, res) {
+    //affiche index.html
+    res.render('panier.html');
+
+});
+
+router.get(['/account'], function(req, res) {
+    //affiche index.html
+    res.render('account.html');
+
+});
+
+router.get(['/article/:id'], function(req, res) {
     //affiche detail.html
     var idArticle = req.params.id;
     Article.findById(idArticle).exec(function(err, arcticle) {

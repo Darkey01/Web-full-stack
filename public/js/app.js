@@ -1,7 +1,12 @@
 var app = angular.module('quizApp', ['ngRoute']);
+var router = require('express').Router();
 
 //var apiBaseURL = 'http://0.0.0.0:3000/api';
 var apiBaseURL = 'http://10.69.2.15:3000/api';
+
+router.get(['/', '/index'], function(req, res) {
+        res.render('index.html');
+});
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -12,6 +17,18 @@ app.config(function($routeProvider) {
         .when('/accueil', {
             controller: '',
             templateUrl: 'accueil.html'
+        })
+        .when('/phone', {
+            controller: '',
+            templateUrl: 'mobilePhone.html'
+        })
+        .when('/computer', {
+            controller: '',
+            templateUrl: 'computer.html'
+        })
+        .when('/tablet', {
+            controller: '',
+            templateUrl: 'tablet.html'
         })
         .otherwise({
             redirectTo: '/'
@@ -27,7 +44,7 @@ app.controller('LoginController', ['$scope', '$location', 'users', function($sco
     $scope.loginAction = function() {
         $scope.loginError = false;
         alert('email : ' + $scope.email + '  password : ' + $scope.password)
-
+        $location.path('/accueil');
         var promise = users.loginUser($scope.email, $scope.password);
         promise.then(function(response) {
             $location.path('/accueil');

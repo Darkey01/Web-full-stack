@@ -1,6 +1,6 @@
 var router = require('express').Router();
 
 router.use('/login', require('./loginController'));
-router.use('/api', require('./apiController'));
+router.use(['/', '/index'], require('./apiController'));
 
 module.exports = router;
