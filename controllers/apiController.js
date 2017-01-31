@@ -48,13 +48,29 @@ router.get(['/', '/index','/accueil'], function(req, res) {
 
 router.get(['/arcticle/:id'], function(req, res) {
     //affiche detail.html
-    var idFilm = req.params.id;
-    Article.findById(idFilm).exec(function(err, arcticle) {
+    var idArticle = req.params.id;
+    Article.findById(idArticle).exec(function(err, arcticle) {
         res.render('fichesProduit.html', { arcticle: arcticle});
     });
 });
 
-router.post('/article/:id',parser, function(req, res) {
+router.get('/panier/:idUser',parser, function(req, res) {
+    var userId = req.params.idUser;
+    User.findById(userId).populate().exec(function (err , user) {
+        res.render('panier.html', {articles : user.arcticle});
+    })
+});
+
+router.post('/addpanier/:idArticle/:idUser',parser, function(req, res) {
+    var idArticle = req.params.idArticle;
+    var idUser = req.params.idUser;
+    User.findById(userId).populate().exec(function (err , user) {
+    user.pannier.push(idArticle);
+    user.save(function(err, postSaved) {
+       // res.redirect('/panier/'+idPost);
+    });
+
+    });
 
 });
 
