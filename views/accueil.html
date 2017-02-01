@@ -1,22 +1,4 @@
-<body>
-
-        <link rel="stylesheet" type="text/css" href="/public/css/style2.css" />
-        <img src="/public/css/images/logo.jpg" height="75.9px" width="300px"/>
-
-<h1>Site de vente hi-tech</h1>
-
-<div ng-app="">
-</div>
-        <div class="shell">
-            <ul id="menu">
-                <li><a href="/">Accueil</a></li>
-                <li><a href="/computer">Ordinateurs</a></li>
-                <li><a href="/phone">Téléphones mobiles</a></li>
-                <li><a href="/tablet">Tablettes</a></li>
-                <li><a href="/panier">Mon panier</a></li>
-                <li><a href="/account">Mon compte</a></li>
-                <li><a href="/apropos">A propos</a></li>
-            </ul>
+<div class="shell">
     <!-- Content -->
     <div id="content">
         <!-- Container -->
@@ -25,21 +7,20 @@
                 <!-- First Tab Content -->
                 <div class="tab-content" style="display:block;">
                     <div class="items">
-                        <div class="cl">&nbsp;</div>
                         <ul>
                             <li class="accueil-soldé" ng-repeat="article in articleSoldes">
-                                <div class="image"><a href="#"><img src="./img/{{article.image}}" width="200" height="121.95" /></a>
+                                <div class="image">
+                                    <a href="#"><img ng-src="{{article.image}}" width="200" height="121.95" /></a>
                                     <p>{{article.nom}}</p>
                                     <span></span><span class="prix">{{article.prixPromo}}</span>
                                 </div>
                             </li>
                         </ul>
                     </div>
+                </div>
             </div>
+            <!-- End Container -->
         </div>
-        <!-- End Container -->
+        <!-- End Content -->
     </div>
-    <!-- End Content -->
 </div>
-</div>
-</body>

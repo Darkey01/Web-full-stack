@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,700,300" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.min.js"></script>
-    <script src="/public/js/app.js"></script>
-    <script src="/public/js/fakeHttpService.js"></script>
+    <script src="../public/js/app.js"></script>
+    <script src="templates/menu.component.js"></script>
+    <script src="templates/footer.component.js"></script>
 </head>
 <body>
-<div ng-app="">
-    <div ng-view></div>
-</div>
+<div ng-app="Ecommerce">
+    <navigation-bar></navigation-bar>
 
+    <div class="container" style="margin-top: 60px">
+        <div ng-view></div>
+    </div>
+    <footer-bar></footer-bar>
+</div>
 </body>
 </html>

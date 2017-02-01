@@ -3,7 +3,12 @@ body {
 	font-family: 'Open Sans';
 	font-weight: 300;
 }
+.glyphicon{    display: block !important;
+	text-align: center;
+	font-size: x-large;
+	margin-bottom: 2px;
 
+}
 
 .main {
 	background: white url(./images/slide2.jpg) right top no-repeat;

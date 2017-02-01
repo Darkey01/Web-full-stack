@@ -47,11 +47,7 @@ router.get(['/', '/index','/accueil'], function(req, res) {
     });*/
 });
 
-router.get(['/login'], function(req, res) {
-    //affiche index.html
-    res.render('login.html');
 
-});
 
 router.get(['/phone'], function(req, res) {
     //affiche index.html
@@ -71,11 +67,6 @@ router.get(['/tablet'], function(req, res) {
 
 });
 
-router.get(['/panier'], function(req, res) {
-    //affiche index.html
-    res.render('panier.html');
-
-});
 
 router.get(['/account'], function(req, res) {
     //affiche index.html
