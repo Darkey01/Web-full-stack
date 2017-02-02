@@ -2,7 +2,7 @@ var app = angular.module('Ecommerce', ['ngRoute', 'footerModule' , 'navigationBa
 
 
 //var apiBaseURL = 'http://0.0.0.0:3000/api';
-var apiBaseURL = 'http://10.69.2.15:3000/api';
+var apiBaseURL = 'http://localhost:1337/api';
 
 
 app.config(function($routeProvider) {
@@ -12,7 +12,7 @@ app.config(function($routeProvider) {
             templateUrl : 'login.html'
         })
         .when('/accueil', {
-            controller: '',
+            controller: 'accueilController',
             templateUrl: 'accueil.html'
         })
         .when('/phone', {
@@ -51,29 +51,30 @@ app.controller('LoginController', ['$scope', '$location', 'users', function($sco
     }
 }]);
 
-app.controller('accueilController', ['$scope', 'users','article', function($scope, $location, users, article) {
-
+app.controller('accueilController', ['$scope', 'article', function($scope , article) {
+/*
     if (!users.authenticated) {
         $location.path('/');
         return;
-    }
+    }*/
     article.getAccueil().then(function (response) {
-        $scope.articleSoldes = response.articleSoldes;
-        $scope.articleNouveau = response.articleNouveau;
-        $scope.articleTop = response.articleTop;
+        $scope.articleSoldes = response.data.articleSoldes;
+        $scope.articleNouveau = response.data.articleNouveau;
+        $scope.articleTop = response.data.articleTop;
+        console.log(response.data);
     }, function (error) {
         console.log(error);
     });
 }]);
 
-app.service('article', ['fakeHttp', function($http) {
+app.service('article',  function($http) {
 
     this.getAccueil = function() {
         var url = apiBaseURL + '/accueil';
         return $http.get(url);
     }
-}]);
-
+});
+/*
 app.service('users', ['fakeHttp', function($http) {
 
     this.authenticated = false;
@@ -99,4 +100,4 @@ app.service('users', ['fakeHttp', function($http) {
         });
         return promise;
     };
-}]);
+}]);*/
