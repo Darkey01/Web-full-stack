@@ -15,6 +15,10 @@ app.config(function($routeProvider) {
             controller: 'accueilController',
             templateUrl: 'accueil.html'
         })
+        .when('/article/:idArticle', {
+            controller: 'detailController',
+            templateUrl: 'ficheProduit.html'
+        })
         .when('/phone', {
             controller: '',
             templateUrl: 'mobilePhone.html'
@@ -35,16 +39,14 @@ app.config(function($routeProvider) {
             controller: '',
             templateUrl: 'panier.html'
         })
-        .otherwise({
-            redirectTo: '/'
-        });
+
 });
 
 app.controller('LoginController', ['$scope', '$location', 'users', function($scope, $location, users) {
     $scope.loginError = false;
 
-	$scope.email = 'reynald@localhost';
-	$scope.password = 'reynald';
+    $scope.email = 'reynald@localhost';
+    $scope.password = 'reynald';
 
     $scope.loginAction = function() {
         $scope.loginError = false;
@@ -59,12 +61,57 @@ app.controller('LoginController', ['$scope', '$location', 'users', function($sco
     }
 }]);
 
-app.controller('accueilController', ['$scope', 'article', function($scope , article) {
-/*
-    if (!users.authenticated) {
-        $location.path('/');
-        return;
-    }*/
+app.controller('detailController', ['$scope','$routeParams','$location', 'article', function($scope ,$routeParams,$location, article) {
+
+    article.getArticleByID($routeParams.idArticle).then(function (response) {
+        $scope.articleD = response.data.article;
+        var range = [];
+        for(var i=5;i> $scope.articleD.moyenneNote ;i--) {
+            range.push(i);
+        }
+        var note = [];
+        for(var i=0;i<$scope.articleD.moyenneNote ;i++) {
+            note.push(i);
+        }
+        $scope.note = note;
+        $scope.range = range;
+        if ($scope.articleD.stock == 0 ){
+            $scope.stock = "Rupture de Stock";
+        }else{
+            if($scope.articleD.stock <= 5 ){
+                $scope.stock = "Attention, plus que "+ $scope.articleD.stock + " arcicles.";
+            }else{
+                $scope.stock = "En stock.";
+            }
+        }
+
+    }, function (error) {
+        console.log(error)
+    });
+
+}]);
+
+app.controller('accueilController', ['$scope','$location', 'article', function($scope ,$location , article) {
+
+    $scope.addCart = function (idArticle) {
+        /*if (!users.authenticated) {
+         $location.path('/');
+         return;
+         }
+         var idUser = users.getId()*/
+        var idUser = "";
+        article.postCart(idArticle , idUser).then(function (response) {
+            alert('Article Ajouter au panier');
+
+        }, function (error) {
+            console.log(error);
+        });
+
+    };
+
+    $scope.detailArticle = function (idProduit) {
+        $location.path('article/'+idProduit);
+    }
     article.getAccueil().then(function (response) {
         $scope.articleSoldes = response.data.articleSoldes;
         $scope.articleNouveau = response.data.articleNouveau;
@@ -100,34 +147,43 @@ app.controller('personCtrl', function($scope, $http) {
 app.service('article',  function($http) {
 
     this.getAccueil = function() {
-        var url = apiBaseURL + '/accueil';
+        var url = apiBaseURL + '/';
         return $http.get(url);
+    };
+
+    this.getArticleByID = function (idArticle) {
+        var url = apiBaseURL + '/article/' + idArticle;
+        return $http.get(url);
+    } ;
+    this.postCart = function (idArticle , idUser) {
+        var url = apiBaseURL + '/addpanier/' + idArticle+idUser;
+        return $http.post(url);
     }
 });
 /*
-app.service('users', ['fakeHttp', function($http) {
+ app.service('users', ['fakeHttp', function($http) {
 
-    this.authenticated = false;
-    var users = this;
+ this.authenticated = false;
+ var users = this;
 
-    this.loginUser = function(email, password) {
+ this.loginUser = function(email, password) {
 
-        users.authenticated = false;
-        var loginUrl = apiBaseURL + '/Users/login';
-        var postData = {
-            'email': email,
-            'password': password
-        }
-        var headers =  {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-        var promise = $http.post(loginUrl, postData, headers);
-        promise.then(function(response) {
-            users.authenticated = true;
-        }, function(error) {
-            users.authenticated = false;
-        });
-        return promise;
-    };
-}]);*/
+ users.authenticated = false;
+ var loginUrl = apiBaseURL + '/Users/login';
+ var postData = {
+ 'email': email,
+ 'password': password
+ }
+ var headers =  {
+ 'Content-Type': 'application/json',
+ 'Accept': 'application/json'
+ }
+ var promise = $http.post(loginUrl, postData, headers);
+ promise.then(function(response) {
+ users.authenticated = true;
+ }, function(error) {
+ users.authenticated = false;
+ });
+ return promise;
+ };
+ }]);*/

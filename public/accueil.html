@@ -1,26 +1,53 @@
-<div class="shell">
+<div>
     <!-- Content -->
     <div id="content">
-        <!-- Container -->
-        <div id="container">
-            <div class="tabbed">
-                <!-- First Tab Content -->
-                <div class="tab-content" style="display:block;">
-                    <div class="items">
-                        <ul>
-                            <li class="accueil-soldé" ng-repeat="article in articleSoldes">
-                                <div class="image">
-                                    <a href="#"><img ng-src="{{article.image}}" width="200" height="121.95" /></a>
-                                    <p>{{article.nom}}</p>
-                                    <span></span><span class="prix">{{article.prixPromo}}</span>
-                                </div>
-                            </li>
-                        </ul>
+        <div class="tab-content" style="display:block;">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators" >
+                    <li ng-repeat="articlecarousel in articleNouveau" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:$index==0}"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item"  ng-repeat="articlecarousel in articleNouveau" ng-class="{active:$index==0}">
+                        <img ng-src="{{articlecarousel.image}}" alt="Chania" style="width:  100% ; height: 450px">
+                        <div class="carousel-caption">
+                            <h3 ng-click="detailArticle(articlecarousel._id)"   style="color : black">{{articlecarousel.nom}}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- End Container -->
         </div>
+        <div class="tab-content" style=" height: 500px ;display:block;">
+            <h2 style="color: red ;text-align: center">Vente Flash !</h2>
+            <div class="col-sm-3 col-md-3 col-xs-2" class="accueil-soldé" ng-repeat="articleSolde in articleSoldes">
+                <div class="thumbnail" ng-click="detailArticle(articleSolde._id)">
+                    <img class="thumbnail-img" src="{{articleSolde.image}}" alt="{{article.nom}}">
+                    <div class="caption">
+                        <p><h3>{{articleSolde.nom}}</h3><span>{{articleSolde.moyenneNote}} / 5 </span></p>
+                        <span class="prixPromo">{{articleSolde.prixPromo}} € € EN PROMO !!!</span>
+                        <p style="text-align: right"><span ng-click="addCart(articleSolde._id)" class="glyphicon glyphicon-shopping-cart"></span><span ng-click="detailArticle(articleSolde._id)"  class="glyphicon glyphicon-search"></span></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" style="display:block;">
+            <div class="jumbotron hero-spacer" ng-click="addCart(articleTop[0].id)">
+                <h2 class="title" style="text-align: center ; color: red;">Notre Coup de Coeur !</h2>
+                <img ng-src="{{articleTop[0].image}}" width="400" height="321.95" />
+                <article style="display: inline-block; width:  50% ; vertical-align: top">
+                    <p><span style="font-size: 22px ; ">{{articleTop[0].nom}}</span><span> {{articleTop[0].moyenneNote}} / 5</span></p>
+                    <p><span class="prix">{{articleTop[0].prix}} €</span>
+                    <p>{{articleTop[0].description}}</p>
+                </article>
+            </div>
+        </div>
+
+
         <!-- End Content -->
     </div>
+
 </div>

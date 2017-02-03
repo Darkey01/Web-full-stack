@@ -17,7 +17,6 @@ var articleSchema = new Schema({
     image : 'String',
     categorie: { type: Schema.Types.ObjectId, ref: 'Categorie'}
 });
-
 var Article = db.model('Article', articleSchema);
 
 module.exports = Article;

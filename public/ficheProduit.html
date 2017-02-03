@@ -3,7 +3,24 @@
     <div id="content">
         <!-- Container -->
         <div id="container">
-
+            <div class="thumbnail">
+                <img class="img-responsive img-detail" src="{{articleD.image}}" alt="">
+                <div class="caption-full " style="width:70% ;display : inline-block ">
+                    <h4 class="pull-right">{{articleD.prix}} €</h4>
+                    <h4>{{articleD.nom}} </h4>
+                    <p> {{articleD.description}}</p>
+                </div>
+                <div style="width:25% ; background-color: #999999; display : inline-block ; text-align: center ; padding: 10px">
+                    <p>{{stock}}</p>
+                    <button class="btn btn-info">Commander Maintenant !</button>
+                </div>
+                <div class="ratings" >
+                    <p >
+                        <span ng-repeat="i in note" class="glyphicon glyphicon-star"></span>
+                        <span ng-repeat="i in range" class="glyphicon glyphicon-star-empty"></span>
+                    </p>
+                </div>
+            </div>
             <!-- End Container -->
         </div>
         <!-- End Content -->

@@ -3,18 +3,31 @@ body {
 	font-family: 'Open Sans';
 	font-weight: 300;
 }
-.glyphicon{    display: block !important;
+.glyphicon-menu{    display: block !important;
 	text-align: center;
 	font-size: x-large;
 	margin-bottom: 2px;
-
 }
 
-.main {
-	background: white url(./images/slide2.jpg) right top no-repeat;
-	background-size: contain;
-	padding: 80px 20px 20px;
-	margin-top: 120px;
+.glyphicon{
+	margin: 5px;
+	margin-top: 0px;
+}
+.prixPromo{
+	font-style: 22px;
+	font-weight: bold;
+}
+.prix{
+	font-style: 22px;
+}
+.img-detail{
+	height: 700px;
+}
+
+.thumbnail-img {
+	max-width: 250px ;
+	min-width: 180px;
+	height:171px !important;
 }
 
 @media only screen and (max-width : 992px) {
@@ -52,39 +65,7 @@ input.form-control , input[type="submit"] , .btn {
 	transition: all ease-in-out 0.2s;
 }
 
-.credits {
-	margin-top: 100px;
-	color: #999;
-	font-size: 12px;
-}
 
-.credits a {
-	color: inherit;
-}
 
-@keyframes slidy {
-	0% { left: 0%; }
-	20% { left: 0%; }
-	25% { left: -100%; }
-	45% { left: -100%; }
-	50% { left: -200%; }
-	70% { left: -200%; }
-	75% { left: -300%; }
-	95% { left: -300%; }
-	100% { left: -400%; }
-}
-
-body { margin: 0; }
-div#slider { overflow: hidden; }
-div#slider figure img { width: 20%; float: left; }
-div#slider figure {
-	position: relative;
-	width: 300%;
-	margin: 0;
-	left: 0;
-	text-align: left;
-	font-size: 0;
-	animation: 30s slidy infinite;
-}
 
 

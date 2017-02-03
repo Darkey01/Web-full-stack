@@ -8,10 +8,10 @@ var Article = require('../models/Article')
 var userSchema= new Schema({
     nom: 'String',
     prenom: 'String',
+    dateAnniversaire : 'Date',
     email : 'String',
     panier : [{type: Schema.Types.ObjectId, ref: 'Article'}],
-    password : 'String',
-
+    password : 'String'
 });
 
 var User= db.model('User', userSchema);

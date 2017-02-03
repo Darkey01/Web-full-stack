@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top" style="background-image: none; background-color: white;">
     <div class="container">
         <div id="navbar" class="collapse navbar-collapse" style="text-align: center">
-            <a href="#/"><img src="../public/img/logo.jpg" style="margin-top: 15px;height: 55px; float: left;"></a>
+            <a href="#/"><img src="img/logo.jpg" style="margin-top: 15px;height: 55px; float: left;"></a>
             <ul class="nav navbar-nav" style="margin-top: 26px; float: none ; display: inline-block">
                 <li><a href="#/">Accueil</a></li>
                 <li><a href="#/computer">Ordinateurs</a></li>
@@ -10,8 +10,8 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/panier"><span class="glyphicon glyphicon-shopping-cart"></span>  Mon panier</a></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-user"></span>  Mon compte</a></li>
+                <li><a href="#/panier"><span class="glyphicon glyphicon-menu glyphicon-shopping-cart"></span>  Mon panier <span class="badge">{{user.panier.lenght}}</span></a></li>
+                <li><a href="#/account"><span class="glyphicon glyphicon-menu glyphicon-user"></span>  Mon compte </a></li>
             </ul>
         </div>
     </div>

@@ -33,9 +33,8 @@ var upload = multer({
 
 var parser = bodyParser.urlencoded({extended: false});
 
-router.get('/login' , function(req, res) {
-    //affiche ajout.html
-    res.render('/views/login.html');
+router.get('/' , function(req, res) {
+    console.log("test");
 });
 
 
