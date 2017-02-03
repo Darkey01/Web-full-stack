@@ -27,6 +27,14 @@ app.config(function($routeProvider) {
             controller: '',
             templateUrl: 'tablet.html'
         })
+        .when('/account', {
+            controller: '',
+            templateUrl: 'account.html'
+        })
+        .when('/panier', {
+            controller: '',
+            templateUrl: 'panier.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -66,6 +74,28 @@ app.controller('accueilController', ['$scope', 'article', function($scope , arti
         console.log(error);
     });
 }]);
+
+app.controller('personCtrl', function($scope, $http) {
+    $scope.disabledInput = true;
+    $scope.toggle = function () {
+        $scope.disabledInput = !$scope.disabledInput;
+        console.log($scope.disabledInput);
+    }
+
+    $scope.enregistrerDonnees = function () {
+        var user = {
+            prenom : $scope.prenom,
+            nom : $scope.nom,
+            email : $scope.email,
+            password : $scope.password
+        }
+
+
+        $http.post(apiBaseURL + "/account/update/:id", user);
+
+        alert("Vous avez bien modifié vos données" + surface);
+    }
+})
 
 app.service('article',  function($http) {
 
