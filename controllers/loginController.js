@@ -33,22 +33,11 @@ var upload = multer({
 
 var parser = bodyParser.urlencoded({extended: false});
 
-router.get('/' , function(req, res) {
-    console.log("test");
+router.post('/authentificaation' , function(req, res) {
+    console.log(req.body.postData.email);
 });
 
 
-router.get(['/add'] , function(req, res) {
-    //affiche ajout.html
-    res.render('ajout.html');
-});
 
-router.post(['/add'], parser,  function(req, res){
-
-    upload(req, res, function(err) {
-
-
-    });
-});
 
 module.exports = router;

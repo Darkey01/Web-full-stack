@@ -9,6 +9,7 @@
   "author": "Ludo et Rey",
   "license": "ISC",
   "dependencies": {
+    "angular-cookies": "^1.6.1",
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "ejs": "^2.5.5",
