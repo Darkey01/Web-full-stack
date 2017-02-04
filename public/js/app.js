@@ -63,8 +63,25 @@ app.controller('LoginController', ['$scope', '$location', 'users', function($sco
 
 app.controller('detailController', ['$scope','$routeParams','$location', 'article', function($scope ,$routeParams,$location, article) {
 
+    $scope.addCart = function (idArticle) {
+        /*if (!users.authenticated) {
+         $location.path('/');
+         return;
+         }
+         var idUser = users.getId()*/
+        var idUser = "";
+        article.postCart(idArticle , idUser).then(function (response) {
+            alert('Article Ajouter au panier');
+
+        }, function (error) {
+            console.log(error);
+        });
+
+    };
+
     article.getArticleByID($routeParams.idArticle).then(function (response) {
         $scope.articleD = response.data.article;
+        $scope.disabledBouton = false ;
         var range = [];
         for(var i=5;i> $scope.articleD.moyenneNote ;i--) {
             range.push(i);
@@ -77,6 +94,7 @@ app.controller('detailController', ['$scope','$routeParams','$location', 'articl
         $scope.range = range;
         if ($scope.articleD.stock == 0 ){
             $scope.stock = "Rupture de Stock";
+            $scope.disabledBouton = true ;
         }else{
             if($scope.articleD.stock <= 5 ){
                 $scope.stock = "Attention, plus que "+ $scope.articleD.stock + " arcicles.";
@@ -126,8 +144,7 @@ app.controller('personCtrl', function($scope, $http) {
     $scope.disabledInput = true;
     $scope.toggle = function () {
         $scope.disabledInput = !$scope.disabledInput;
-        console.log($scope.disabledInput);
-    }
+    };
 
     $scope.enregistrerDonnees = function () {
         var user = {
@@ -135,14 +152,14 @@ app.controller('personCtrl', function($scope, $http) {
             nom : $scope.nom,
             email : $scope.email,
             password : $scope.password
-        }
+        };
 
 
         $http.post(apiBaseURL + "/account/update/:id", user);
 
-        alert("Vous avez bien modifié vos données" + surface);
+        alert("Vous avez bien modifié vos données");
     }
-})
+});
 
 app.service('article',  function($http) {
 

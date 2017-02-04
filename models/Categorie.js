@@ -1,6 +1,6 @@
 /**
  * Created by Reynald on 13/01/2017.
- */
+
 var db = require('../config/db');
 var Article = require('../models/Article.js');
 var Schema = db.Schema;
@@ -14,3 +14,4 @@ var categorieSchema= new Schema({
 var Categorie = db.model('Categorie', categorieSchema);
 
 module.exports = Categorie;
+ */

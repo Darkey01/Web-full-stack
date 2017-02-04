@@ -36,21 +36,19 @@ var parser = bodyParser.urlencoded({extended: false});
 
 
 router.get('/phone', function(req, res) {
-    //affiche index.html
-    res.render('mobilePhone.html');
+
+    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
 
 });
 
 router.get('/computer', function(req, res) {
-    //affiche index.html
-    res.render('computer.html');
 
+    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
 });
 
 router.get('/tablet', function(req, res) {
-    //affiche index.html
-    res.render('tablet.html');
 
+    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
 });
 
 
@@ -72,7 +70,7 @@ router.get('/article/:id', function(req, res) {
 router.get('/panier/:idUser',parser, function(req, res) {
     var userId = req.params.idUser;
     User.findById(userId).populate().exec(function (err , user) {
-        res.render('panier.html', {articles : user.arcticle});
+        res.json({articles : user.arcticle});
     })
 });
 
@@ -97,7 +95,7 @@ router.get('/', function(req, res) {
     Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
         Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
             Article.find({}).sort('-moyenneNote').limit(1).exec(function (err, articleTop) {
-                res.json({articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop , ok : 'ok ca marche'});
+                res.json({articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop});
             });
         });
     });

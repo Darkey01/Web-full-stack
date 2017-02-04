@@ -15,7 +15,7 @@ var articleSchema = new Schema({
     dateAjout : 'Date',
     moyenneNote : {type : 'Number', default  : 0},
     image : 'String',
-    categorie: { type: Schema.Types.ObjectId, ref: 'Categorie'}
+    categorie: 'String'
 });
 var Article = db.model('Article', articleSchema);
 
