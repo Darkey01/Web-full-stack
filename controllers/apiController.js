@@ -37,18 +37,21 @@ var parser = bodyParser.urlencoded({extended: false});
 
 router.get('/phone', function(req, res) {
 
-    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
-
+    Article.find({categorie : "phone"}).exec(function (err, articles) {
+        res.json({articles : articles});
+    });
 });
-
 router.get('/computer', function(req, res) {
 
-    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
+    Article.find({categorie : "pc"}).exec(function (err, articles) {
+        res.json({articles : articles});
+    });
 });
-
 router.get('/tablet', function(req, res) {
 
-    Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
+    Article.find({categorie : "tablet"}).exec(function (err, articles) {
+        res.json({articles : articles});
+    });
 });
 
 
@@ -80,10 +83,10 @@ router.post('/addpanier/:idArticle/:idUser',parser, function(req, res) {
     var idArticle = req.params.idArticle;
     var idUser = req.params.idUser;
     User.findById(idUser).populate().exec(function (err , user) {
-    user.panier.push(idArticle);
-    user.save(function(err, postSaved) {
+        user.panier.push(idArticle);
+        user.save(function(err, postSaved) {
 
-    });
+        });
 
     });
 
