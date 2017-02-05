@@ -43,7 +43,7 @@ router.get('/phone', function(req, res) {
 });
 router.get('/computer', function(req, res) {
 
-    Article.find({categorie : "pc"}).exec(function (err, articles) {
+    Article.find({categorie : "computer"}).exec(function (err, articles) {
         res.json({articles : articles});
     });
 });
