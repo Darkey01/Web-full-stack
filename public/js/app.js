@@ -156,11 +156,9 @@ app.controller('phoneController', ['$scope','$location','$cookies', 'article', f
     $scope.detailArticle = function (idProduit) {
         $location.path('article/'+idProduit);
     }
-    article.getAccueil().then(function (response) {
-        $scope.articleSoldes = response.data.articleSoldes;
-        $scope.articleNouveau = response.data.articleNouveau;
-        $scope.articleTop = response.data.articleTop;
-        console.log(response.data);
+    article.getPhone().then(function (response) {
+        console.log(response.data.articles);
+        $scope.articles = response.data.articles;
     }, function (error) {
         console.log(error);
     });
@@ -187,11 +185,9 @@ app.controller('computerController', ['$scope','$location','$cookies', 'article'
     $scope.detailArticle = function (idProduit) {
         $location.path('article/'+idProduit);
     }
-    article.getAccueil().then(function (response) {
-        $scope.articleSoldes = response.data.articleSoldes;
-        $scope.articleNouveau = response.data.articleNouveau;
-        $scope.articleTop = response.data.articleTop;
-        console.log(response.data);
+    article.getPc().then(function (response) {
+        console.log(response.data.articles);
+        $scope.articles = response.data.articles;
     }, function (error) {
         console.log(error);
     });
