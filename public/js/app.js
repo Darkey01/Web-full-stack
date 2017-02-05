@@ -19,15 +19,15 @@ app.config(function($routeProvider) {
             templateUrl: 'ficheProduit.html'
         })
         .when('/phone', {
-            controller: '',
+            controller: 'phoneController',
             templateUrl: 'mobilePhone.html'
         })
         .when('/computer', {
-            controller: '',
+            controller: 'computerController',
             templateUrl: 'computer.html'
         })
         .when('/tablet', {
-            controller: '',
+            controller: 'tabletController',
             templateUrl: 'tablet.html'
         })
         .when('/account', {
@@ -130,6 +130,99 @@ app.controller('accueilController', ['$scope','$location','$cookies', 'article',
         $scope.articleSoldes = response.data.articleSoldes;
         $scope.articleNouveau = response.data.articleNouveau;
         $scope.articleTop = response.data.articleTop;
+    }, function (error) {
+        console.log(error);
+    });
+}]);
+
+app.controller('phoneController', ['$scope','$location','$cookies', 'article', function($scope ,$location ,$cookies, article) {
+
+    $scope.addCart = function (idArticle) {
+        if (!$cookies.get("user")) {
+            $location.path('/phone');
+            return;
+        }
+        var idUser = $cookies.get("user").__id;
+        console.log($cookies.get("user"));
+        article.postCart(idArticle , idUser).then(function (response) {
+            alert('Article Ajouter au panier');
+
+        }, function (error) {
+            console.log(error);
+        });
+
+    };
+
+    $scope.detailArticle = function (idProduit) {
+        $location.path('article/'+idProduit);
+    }
+    article.getAccueil().then(function (response) {
+        $scope.articleSoldes = response.data.articleSoldes;
+        $scope.articleNouveau = response.data.articleNouveau;
+        $scope.articleTop = response.data.articleTop;
+        console.log(response.data);
+    }, function (error) {
+        console.log(error);
+    });
+}]);
+
+app.controller('computerController', ['$scope','$location','$cookies', 'article', function($scope ,$location ,$cookies, article) {
+
+    $scope.addCart = function (idArticle) {
+        if (!$cookies.get("user")) {
+            $location.path('/computer');
+            return;
+        }
+        var idUser = $cookies.get("user").__id;
+        console.log($cookies.get("user"));
+        article.postCart(idArticle , idUser).then(function (response) {
+            alert('Article Ajouter au panier');
+
+        }, function (error) {
+            console.log(error);
+        });
+
+    };
+
+    $scope.detailArticle = function (idProduit) {
+        $location.path('article/'+idProduit);
+    }
+    article.getAccueil().then(function (response) {
+        $scope.articleSoldes = response.data.articleSoldes;
+        $scope.articleNouveau = response.data.articleNouveau;
+        $scope.articleTop = response.data.articleTop;
+        console.log(response.data);
+    }, function (error) {
+        console.log(error);
+    });
+}]);
+
+app.controller('tabletController', ['$scope','$location','$cookies', 'article', function($scope ,$location ,$cookies, article) {
+
+    $scope.addCart = function (idArticle) {
+        if (!$cookies.get("user")) {
+            $location.path('/tablet');
+            return;
+        }
+        var idUser = $cookies.get("user").__id;
+        console.log($cookies.get("user"));
+        article.postCart(idArticle , idUser).then(function (response) {
+            alert('Article Ajouter au panier');
+
+        }, function (error) {
+            console.log(error);
+        });
+
+    };
+
+    $scope.detailArticle = function (idProduit) {
+        $location.path('article/'+idProduit);
+    }
+    article.getAccueil().then(function (response) {
+        $scope.articleSoldes = response.data.articleSoldes;
+        $scope.articleNouveau = response.data.articleNouveau;
+        $scope.articleTop = response.data.articleTop;
+        console.log(response.data);
     }, function (error) {
         console.log(error);
     });

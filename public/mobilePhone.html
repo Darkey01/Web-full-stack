@@ -1,11 +1,22 @@
-<div class="shell">
+<div>
     <!-- Content -->
     <div id="content">
-        <!-- Container -->
-        <div id="container">
 
-            <!-- End Container -->
+        <div class="tab-content" style=" height: 500px ;display:block;">
+            <h2 style="color: red ;text-align: center">Vente de smartphone</h2>
+            <div class="col-sm-3 col-md-3 col-xs-2" class="accueil-soldé" ng-repeat="articleSolde in articleSoldes" ng-if="articleSolde.categorie=='phone'">
+                <div class="thumbnail" ng-click="detailArticle(articleSolde._id)">
+                    <img class="thumbnail-img" src="{{articleSolde.image}}" alt="{{article.nom}}">
+                    <div class="caption">
+                        <p><h3>{{articleSolde.nom}}</h3><span>{{articleSolde.moyenneNote}} / 5 </span></p>
+                        <span class="prixPromo">{{articleSolde.prixPromo}} € € EN PROMO !!!</span>
+                        <p style="text-align: right"><span ng-click="addCart(articleSolde._id)" class="glyphicon glyphicon-shopping-cart"></span><span ng-click="detailArticle(articleSolde._id)"  class="glyphicon glyphicon-search"></span></p>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <!-- End Content -->
     </div>
+
 </div>
