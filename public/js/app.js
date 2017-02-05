@@ -218,11 +218,8 @@ app.controller('tabletController', ['$scope','$location','$cookies', 'article', 
     $scope.detailArticle = function (idProduit) {
         $location.path('article/'+idProduit);
     }
-    article.getAccueil().then(function (response) {
-        $scope.articleSoldes = response.data.articleSoldes;
-        $scope.articleNouveau = response.data.articleNouveau;
-        $scope.articleTop = response.data.articleTop;
-        console.log(response.data);
+    article.getTablet().then(function (response) {
+        $scope.article = response.data.articles;
     }, function (error) {
         console.log(error);
     });
@@ -253,6 +250,18 @@ app.service('article',  function($http) {
 
     this.getAccueil = function() {
         var url = apiBaseURL + '/';
+        return $http.get(url);
+    };
+    this.getTablet = function () {
+        var url = apiBaseURL + '/tablet';
+        return $http.get(url);
+    };
+    this.getPc= function () {
+        var url = apiBaseURL + '/computer';
+        return $http.get(url);
+    };
+    this.getPhone = function () {
+        var url = apiBaseURL + '/phone';
         return $http.get(url);
     };
 
