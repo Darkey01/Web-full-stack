@@ -219,7 +219,8 @@ app.controller('tabletController', ['$scope','$location','$cookies', 'article', 
         $location.path('article/'+idProduit);
     }
     article.getTablet().then(function (response) {
-        $scope.article = response.data.articles;
+        console.log(response.data.articles);
+        $scope.articles = response.data.articles;
     }, function (error) {
         console.log(error);
     });
