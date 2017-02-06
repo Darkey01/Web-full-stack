@@ -1,7 +1,8 @@
 var express = require('express');
 var path  = require('path');
 var app = express();
-
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );
 global.comments = [];
 
 app.engine('.html', require('ejs').__express);
@@ -9,6 +10,7 @@ app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname ,  'public')));
+
 
 app.use('/api', require('./controllers'));
 

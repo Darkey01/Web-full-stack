@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top" style="background-image: none; background-color: white;">
     <div class="container">
         <div id="navbar" class="collapse navbar-collapse" style="text-align: center">
-            <a href="#/"><img src="img/logo.jpg" style="margin-top: 15px;height: 55px; float: left;"></a>
+            <a href="#/accueil"><img src="img/logo.jpg" style="margin-top: 15px;height: 55px; float: left;"></a>
             <ul class="nav navbar-nav" style="margin-top: 26px; float: none ; display: inline-block">
-                <li><a href="#/">Accueil</a></li>
+                <li><a href="#/accueil">Accueil</a></li>
                 <li><a href="#/computer">Ordinateurs</a></li>
                 <li><a href="#/phone">Téléphones mobiles</a></li>
                 <li><a href="#/tablet">Tablettes</a></li>
@@ -11,7 +11,9 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/panier"><span class="glyphicon glyphicon-menu glyphicon-shopping-cart"></span>  Mon panier <span class="badge">{{user.panier.lenght}}</span></a></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-menu glyphicon-user"></span>  Mon compte </a></li>
+                <li ng-if="connected"><a href="#/account" ><span class="glyphicon glyphicon-menu glyphicon-user"></span>  Mon compte </a></li>
+                <li ng-if="connected" data-ng-click="disconnect()"><a><span class="glyphicon glyphicon-menu glyphicon-log-out"></span>  Se déconnecter </a></li>
+                <li ng-if="!connected"><a href="#/" ><span class="glyphicon glyphicon-menu glyphicon-log-in"></span>  Se connecter </a></li>
             </ul>
         </div>
     </div>

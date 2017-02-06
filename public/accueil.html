@@ -5,7 +5,7 @@
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators" >
-                    <li ng-repeat="articlecarousel in articleNouveau" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:$index==0}"></li>
+                    <li ng-repeat="articlecarousel in articleNouveau" style="border-color : red" data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:$index==0}"></li>
                 </ol>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
@@ -13,7 +13,7 @@
                     <div class="item"  ng-repeat="articlecarousel in articleNouveau" ng-class="{active:$index==0}">
                         <img ng-src="{{articlecarousel.image}}" alt="Chania" style="width:  100% ; height: 450px">
                         <div class="carousel-caption">
-                            <h3 ng-click="detailArticle(articlecarousel._id)"   style="color : black">{{articlecarousel.nom}}</h3>
+                            <h3 ng-click="detailArticle(articlecarousel._id)"   style="color : red">{{articlecarousel.nom}}</h3>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <img class="thumbnail-img" src="{{articleSolde.image}}" alt="{{article.nom}}">
                     <div class="caption">
                         <p><h3>{{articleSolde.nom}}</h3><span>{{articleSolde.moyenneNote}} / 5 </span></p>
-                        <span class="prixPromo">{{articleSolde.prixPromo}} € € EN PROMO !!!</span>
+                        <span class="prixPromo">{{articleSolde.prixPromo}} € EN PROMO !!!</span>
                         <p style="text-align: right"><span ng-click="addCart(articleSolde._id)" class="glyphicon glyphicon-shopping-cart"></span><span ng-click="detailArticle(articleSolde._id)"  class="glyphicon glyphicon-search"></span></p>
                     </div>
 

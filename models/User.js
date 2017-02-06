@@ -9,9 +9,10 @@ var userSchema= new Schema({
     nom: 'String',
     prenom: 'String',
     dateAnniversaire : 'Date',
-    email : 'String',
+    mail : 'String',
     panier : [{type: Schema.Types.ObjectId, ref: 'Article'}],
-    password : 'String'
+    password : 'String',
+    adresse : 'String'
 });
 
 var User= db.model('User', userSchema);

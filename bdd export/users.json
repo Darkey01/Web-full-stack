@@ -1,0 +1,37 @@
+{ 
+    "_id" : ObjectId("5893174b5dc1f22138f07eed"), 
+    "nom" : "Jayr", 
+    "prenom" : "Reynald", 
+    "dateAnniversaire" : ISODate("1995-08-23T00:00:00.000+0000"), 
+    "email" : "reynald.jayr@localhost", 
+    "panier" : [
+        ObjectId("5893174b5dc1f22138f07eed")
+    ], 
+    "password" : "azerty", 
+    "adresse" : "", 
+    "__v" : NumberInt(7)
+}
+{ 
+    "_id" : ObjectId("5895f0fe838292055c7daf87"), 
+    "nom" : "Trapeau", 
+    "prenom" : "Ludo", 
+    "dateAnniversaire" : ISODate("1995-08-23T11:26:54.386+0000"), 
+    "email" : "ludo.trapeau@localhost", 
+    "panier" : [
+
+    ], 
+    "password" : "azerty", 
+    "adresse" : ""
+}
+{ 
+    "_id" : ObjectId("5897b68d838292055c7daf88"), 
+    "nom" : "admin", 
+    "prenom" : "admin", 
+    "dateAnniversaire" : ISODate("1995-08-23T11:26:54.386+0000"), 
+    "email" : "admin@localhost", 
+    "panier" : [
+
+    ], 
+    "password" : "admin", 
+    "adresse" : ""
+}

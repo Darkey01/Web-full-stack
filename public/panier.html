@@ -1,46 +1,32 @@
-<br>
-<br>
-<br>
+<div id="content">
+    <!-- Container -->
+    <div id="container">
 
-<div class="shell">
-    <!-- Content -->
-    <div id="content">
-        <!-- Container -->
-        <div id="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Description</th>
+                <th>Prix</th>
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">iPhone 7 64Go</th>
-                    <td>899 €</td>
-                    <td><input type="number" name="howmuch"></td>
-                    <td>{{article.prix}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Honor 8 16 Go</th>
-                    <td>400 €</td>
-                    <td><input type="number" name="howmuch"></td>
-                    <td>{{article.prix}}</td>
-                </tr>
-                <tr>
-                    <th scope="row">Samsung Galaxy S7 32 Go</th>
-                    <td>699 €</td>
-                    <td><input type="number" name="howmuch"></td>
-                    <td>{{article.prix}}</td>
-                </tr>
-                </tbody>
-            </table>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="article in articleCommande">
+                <th scope="row">{{article.nom}}</th>
+                <td ng-if="article.isPromo">{{article.prixPromo}}</td>
+                <td ng-if="!article.isPromo">{{article.prix}}</td>
 
-            <!-- End Container -->
-        </div>
-        <!-- End Content -->
+            </tr>
+            <tr>
+                <td>Total : </td>
+                <td>{{prixTotal}} €</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button data-ng-click="validezCommande()" class="btn btn-primary"> Terminer la commande</button>
+
+        <!-- End Container -->
     </div>
+    <!-- End Content -->
 </div>

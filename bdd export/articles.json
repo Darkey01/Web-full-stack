@@ -1,0 +1,91 @@
+{ 
+    "_id" : ObjectId("5893174b5dc1f22138f07eed"), 
+    "nom" : "Galaxy S7", 
+    "prix" : 569.0, 
+    "isPromo" : true, 
+    "prixPromo" : 500.0, 
+    "description" : "Smartphone disposant Lecteur d'empreinte digitale La sécurité de votre smartphone est à présent améliorée et entièrement personnalisable. Utilisez vos empreintes digitales pour déverrouiller votre Galaxy S5 ou pour accéder à des contenus Samsung plutôt que d'entrer systématiquement un mot de passe. ", 
+    "stock" : NumberInt(9), 
+    "dateAjout" : ISODate("2017-02-02T11:26:54.386+0000"), 
+    "moyenneNote" : 0.0, 
+    "image" : "/img/galaxyS7edge.png", 
+    "categorie" : "phone"
+}
+{ 
+    "_id" : ObjectId("58932ba35dc1f22138f07ef0"), 
+    "nom" : "Honor 7", 
+    "prix" : 569.0, 
+    "isPromo" : true, 
+    "prixPromo" : 500.0, 
+    "description" : "Smartphone disposant Lecteur d'empreinte digitale La sécurité de votre smartphone est à présent améliorée et entièrement personnalisable. Utilisez vos empreintes digitales pour déverrouiller votre Galaxy S5 ou pour accéder à des contenus Samsung plutôt que d'entrer systématiquement un mot de passe. ", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-02T11:26:54.386+0000"), 
+    "moyenneNote" : 0.0, 
+    "image" : "/img/honor8.png", 
+    "categorie" : "phone"
+}
+{ 
+    "_id" : ObjectId("58932bab5dc1f22138f07ef1"), 
+    "nom" : "Ipad pro", 
+    "prix" : 569.0, 
+    "isPromo" : true, 
+    "prixPromo" : 500.0, 
+    "description" : "L’iPad Pro n’est pas simplement un iPad de nouvelle génération. C’est une toute nouvelle vision de l’informatique, sans compromis, parfaitement adaptée au monde d’aujourd’hui.", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-02T11:26:54.386+0000"), 
+    "moyenneNote" : 0.0, 
+    "image" : "/img/ipad.png", 
+    "categorie" : "tablet"
+}
+{ 
+    "_id" : ObjectId("58932bb05dc1f22138f07ef2"), 
+    "nom" : "Iphone 6", 
+    "prix" : 569.0, 
+    "isPromo" : true, 
+    "prixPromo" : 500.0, 
+    "description" : "Smartphone disposant Lecteur d'empreinte digitale La sécurité de votre smartphone est à présent améliorée et entièrement personnalisable. Utilisez vos empreintes digitales pour déverrouiller votre Galaxy S5 ou pour accéder à des contenus Samsung plutôt que d'entrer systématiquement un mot de passe. ", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-02T11:26:54.386+0000"), 
+    "moyenneNote" : 0.0, 
+    "image" : "/img/iphone7.png", 
+    "categorie" : "phone"
+}
+{ 
+    "_id" : ObjectId("58932bb05dc1f22138f07ef3"), 
+    "nom" : "Dell Inspiron 15 i7559-5012GRY", 
+    "prix" : 749.0, 
+    "isPromo" : true, 
+    "prixPromo" : 699.0, 
+    "description" : "Chargé avec des composants haut de gamme, le Dell Inspiron 15 est également adapté pour exécuter des programmes les plus exigeants que pour le dynamitage par les derniers jeux next-gen", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-05T11:26:54.386+0000"), 
+    "moyenneNote" : 3.0, 
+    "image" : "/img/dell.png", 
+    "categorie" : "computer"
+}
+{ 
+    "_id" : ObjectId("58932bb05dc1f22138f07ef4"), 
+    "nom" : "MacBook Pro 13 pouces", 
+    "prix" : 1499.0, 
+    "isPromo" : true, 
+    "prixPromo" : 1499.0, 
+    "description" : "Avec le nouveau MacBook Pro, l’ordinateur portable atteint des sommets inexplorés en matière de performances et de portabilité.", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-05T11:26:54.386+0000"), 
+    "moyenneNote" : 4.0, 
+    "image" : "/img/mac.png", 
+    "categorie" : "computer"
+}
+{ 
+    "_id" : ObjectId("58932bb05dc1f22138f07ef5"), 
+    "nom" : "MacBook Pro 13 pouces", 
+    "prix" : 1499.0, 
+    "isPromo" : true, 
+    "prixPromo" : 1499.0, 
+    "description" : "Avec le nouveau MacBook Pro, l’ordinateur portable atteint des sommets inexplorés en matière de performances et de portabilité.", 
+    "stock" : 10.0, 
+    "dateAjout" : ISODate("2017-02-05T11:26:54.386+0000"), 
+    "moyenneNote" : 4.0, 
+    "image" : "/img/mac.png", 
+    "categorie" : "tablet"
+}

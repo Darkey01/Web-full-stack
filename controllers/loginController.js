@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var crypto = require('crypto');
 var mime = require('mime');
 var multer = require('multer');
-
+var User = require('../models/User');
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -33,8 +33,17 @@ var upload = multer({
 
 var parser = bodyParser.urlencoded({extended: false});
 
-router.post('/authentificaation' , function(req, res) {
-    console.log(req.body.postData.email);
+router.post('/authentification' , function(req, res) {
+    var email = req.body.email;
+    var pwd = req.body.password;
+    User.find({email : email , password : pwd}).exec(function (err, user) {
+        if(user.length>0){
+            res.json({user : user});
+        }else{
+            res.json({error : "Utilisateur inconnue"})
+        }
+    });
+
 });
 
 

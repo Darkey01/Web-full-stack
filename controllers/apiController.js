@@ -3,7 +3,7 @@
  */
 var router = require('express').Router();
 var Article = require('../models/Article');
-var Categorie = require('../models/Categorie');
+var User = require('../models/User');
 var multer = require('multer');
 var bodyParser = require('body-parser');
 var crypto = require('crypto');
@@ -56,15 +56,25 @@ router.get('/tablet', function(req, res) {
 
 
 router.get('/account/:id', function(req, res) {
-    var userId = req.params.idUser;
+    var userId = req.params.id;
     User.findById(userId).exec(function (err , user) {
         res.json({user : user});
     })
 });
 
+router.get('/account/update/:id', function(req, res) {
+    var userId = req.params.id;
+    User.findById(userId).exec(function (err , user) {
+        //var req.body.
+        user.save(function(err, postSaved) {
+
+        });
+    })
+});
+
+
 router.get('/article/:id', function(req, res) {
     var idArticle = req.params.id;
-    console.log('marie');
     Article.findById(idArticle).exec(function(err, article) {
         res.json({article: article});
     });
@@ -72,35 +82,51 @@ router.get('/article/:id', function(req, res) {
 
 router.get('/panier/:idUser',parser, function(req, res) {
     var userId = req.params.idUser;
-    User.findById(userId).populate().exec(function (err , user) {
-        res.json({articles : user.arcticle});
+    User.findById(userId).populate('panier').exec(function (err , user) {
+
+        res.json({articles : user.panier});
     })
 });
 
+router.get('/valpanier/:idUser',parser, function(req, res) {
+    var idUser = req.params.idUser;
+    User.update({ _id : idUser}, { panier : [] }, function (err) {
+        if (err) { throw err; }
+        console.log('Panier vidé modifiés !');
+    });
 
+});
 
 router.post('/addpanier/:idArticle/:idUser',parser, function(req, res) {
     var idArticle = req.params.idArticle;
     var idUser = req.params.idUser;
-    User.findById(idUser).populate().exec(function (err , user) {
+    User.findById(idUser).exec(function (err , user) {
         user.panier.push(idArticle);
+
         user.save(function(err, postSaved) {
+            Article.findById(idArticle).exec(function (err , article) {
+                var stockN = article.stock - 1 ;
+
+                Article.update({ _id : idArticle}, { stock: stockN}, function (err) {
+                    if (err) { throw err; }
+                    console.log('Panier vidé modifiés !');
+                });
+            });
 
         });
 
     });
-
 });
 
 
-router.get('/', function(req, res) {
-    console.log("jesus");
-    Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
-        Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
-            Article.find({}).sort('-moyenneNote').limit(1).exec(function (err, articleTop) {
-                res.json({articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop});
+    router.get('/', function(req, res) {
+        console.log("jesus");
+        Article.find({}).sort('-dateSortie').limit(5).exec(function (err, articleNouveau) {
+            Article.find({isPromo : true}).limit(4).exec(function (err, articleSoldes) {
+                Article.find({}).sort('-moyenneNote').limit(1).exec(function (err, articleTop) {
+                    res.json({articleSoldes: articleSoldes, articleNouveau: articleNouveau, articleTop: articleTop});
+                });
             });
         });
     });
-});
-module.exports = router ;
+    module.exports = router ;

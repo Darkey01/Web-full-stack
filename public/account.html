@@ -1,57 +1,48 @@
 <div class="container">
     <h1>Votre profil</h1>
-    <hr>
+
     <div class="row">
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info" >
 
-        <div data-ng-app="myApp" data-ng-controller="personCtrl">
-
-            <!-- edit form column -->
-            <div class="col-md-9 personal-info" ng-app="myApp" ng-controller="personCtrl">
-
-                <!--<div class="alert alert-info alert-dismissable">
-                    <a class="panel-close close" data-dismiss="alert">×</a>
-                    <i class="fa fa-coffee"></i>
-                    This is an <strong>.alert</strong>. Use this to show important messages to the user.
-                </div>-->
-                <h3>Vos informations personnelles</h3>
+            <h3>Vos informations personnelles</h3>
 
 
-                <form class="form-horizontal" role="form">
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Prénom :</label>
-                        <div class="col-lg-8">
-                            <input class="form-control"  type="text" value="{{user.prenom}}" ng-model="prenom" data-ng-disabled="disabledInput">
-                        </div>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Prénom :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control"  type="text" value="{{prenom}}" ng-model="prenom" data-ng-disabled="disabledInput">
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Nom : </label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" id=nom value="{{user.nom}}" data-ng-disabled="disabledInput">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Nom : </label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="text" id="nom" ng-model="nom" data-ng-disabled="disabledInput">
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Date de naissance :</label>
-                        <div class="col-lg-8">
-                            <input class="form-control" type="date" value="{{user.dateNaissance}}" data-ng-disabled="disabledInput">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Date de naissance :</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" type="date" ng-model="dateAnniversaire " data-ng-disabled="disabledInput">
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Adresse postale :</label>
-                        <div class="col-md-8">
-                            <input class="form-control" type="text" value="{{user.adresse}}" data-ng-disabled="disabledInput">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Adresse postale :</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="text" ng-model="adresse" data-ng-disabled="disabledInput">
                     </div>
-                    <div class="form-group">
-                        <label class="col-md-3 control-label">Email :</label>
-                        <div class="col-md-8">
-                            <input class="form-control" type="email" value="{{user.mail}}" data-ng-disabled="disabledInput">
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Email :</label>
+                    <div class="col-md-8">
+                        <input class="form-control" type="email" ng-model="email" data-ng-disabled="disabledInput">
                     </div>
-                    <input type="button" class="btn btn-primary" value="Enregistrer vos modifications" data-ng-click="enregistrerDonnees()">
-                    <input type="button" class="btn btn-primary" value="Modifier vos informations" data-ng-click="toggle()">
-                </form>
-            </div>
+                </div>
+                <input type="button" class="btn btn-primary" value="Enregistrer vos modifications" data-ng-click="enregistrerDonnees()">
+                <input type="button" class="btn btn-primary" value="Modifier vos informations" data-ng-click="toggle()">
+            </form>
         </div>
     </div>
 </div>
-<hr>
+
